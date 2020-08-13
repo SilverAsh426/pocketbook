@@ -14,13 +14,16 @@
   </Layout>
 </template>
 
-<script lang="ts">'/'
+<script lang="ts">
 import Vue from 'vue';
 import {Component} from 'vue-property-decorator';
 import tagListModel from '@/models/tagList';
+import Button from '@/components/Button.vue';
 
 tagListModel.fetch();
-@Component
+@Component({
+  components: {Button}
+})
 export default class Labels extends Vue {
   tags = tagListModel.data;
 

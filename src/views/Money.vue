@@ -43,19 +43,13 @@ export default class Money extends Vue {
     this.record.notes = value;
   }
 
-  onUpdateAmount(value: string) {
-    this.record.amount = parseFloat(value);
-  }
-
   saveRecord() {
-    const record2 = JSON.parse(JSON.stringify(this.record));
-    record2.createdAt = new Date();
-    this.recordList.push(record2);
+    recordListModel.create(this.record)
   }
 
   @Watch('recordList')
   onRecordListChange() {
-    recordListModel.save(this.recordList);
+    recordListModel.save();
   }
 }
 </script>

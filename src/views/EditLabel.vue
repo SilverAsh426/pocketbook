@@ -76,7 +76,7 @@ export default class EditLabel extends Vue{
     width: 24px;
     height: 24px;
   }
-  . rightIcon{
+  > .rightIcon{
     width: 24px;
     height: 24px;
   }
