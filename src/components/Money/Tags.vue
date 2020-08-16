@@ -10,6 +10,7 @@
       </li>
     </ul>
   </div>
+
 </template>
 
 <script lang="ts">
@@ -19,11 +20,15 @@ import TagHelper from '@/mixins/TagHelper';
 
 @Component
 export default class Tags extends mixins(TagHelper) {
+  selectedTags: string[] = [];
+
   get tagList() {
     return this.$store.state.tagList;
   }
 
-  selectedTags: string[] = [];
+  created() {
+    this.$store.commit('fetchTags');
+  }
 
   toggle(tag: string) {
     const index = this.selectedTags.indexOf(tag);
